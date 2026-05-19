@@ -1,0 +1,17 @@
+{{!-- SAP BAdI Definition (BADI) → TypeScript interface with async method signatures --}}
+// Auto-generated from SAP BAdI: {{name}}
+// {{#if description}}{{description}}{{else}}(no description){{/if}}
+// Generated at: {{isoDate}}
+
+export interface {{pascalCase name}} {
+{{#each methods}}
+  /**{{#if description}} {{description}}{{/if}} */
+  {{camelCase name}}(
+    {{#if importing}}params: {
+      {{#each importing}}{{camelCase name}}: {{abapToTs type}};{{#if description}} // {{description}}{{/if}}
+      {{/each}}
+    }{{/if}}
+  ): {{#if returning}}Promise<{{abapToTs returning.type}}>{{else}}Promise<void>{{/if}};
+
+{{/each}}
+}

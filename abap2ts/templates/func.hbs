@@ -1,0 +1,20 @@
+{{!-- ABAP Function Module (FUNC) → typed input/output interfaces + declare function --}}
+// Auto-generated from SAP ABAP Function Module: {{name}}
+// {{#if description}}{{description}}{{else}}(no description){{/if}}
+// Generated at: {{isoDate}}
+
+{{#with (lookup methods 0)}}
+export interface {{pascalCase ../name}}Importing {
+{{#each importing}}  {{camelCase name}}: {{abapToTs type}};{{#if description}} // {{description}}{{/if}}
+{{/each}}
+}
+
+export interface {{pascalCase ../name}}Exporting {
+{{#each exporting}}  {{camelCase name}}: {{abapToTs type}};
+{{/each}}
+}
+
+{{/with}}
+export declare function {{camelCase name}}(
+  params: {{pascalCase name}}Importing
+): Promise<{{pascalCase name}}Exporting>;

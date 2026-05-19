@@ -1,0 +1,11 @@
+{{!-- ABAP Structure (STRU) → TypeScript interface --}}
+// Auto-generated from SAP ABAP Structure: {{name}}
+// {{#if description}}{{description}}{{else}}(no description){{/if}}
+// Generated at: {{isoDate}}
+
+export interface {{pascalCase name}} {
+{{#each fields}}
+  {{#if description}}/** {{description}} */
+  {{/if}}{{camelCase name}}: {{abapToTs type}};
+{{/each}}
+}

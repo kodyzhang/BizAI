@@ -1,0 +1,11 @@
+{{!-- Fallback template: used when no type-specific template matches --}}
+// Auto-generated from SAP ABAP {{type}}: {{name}}
+// {{#if description}}{{description}}{{else}}(no description){{/if}}
+// Generated at: {{isoDate}}
+
+export interface {{pascalCase name}} {
+{{#each fields}}
+  {{#if description}}/** {{description}} */
+  {{/if}}{{camelCase name}}: {{abapToTs type}};
+{{/each}}
+}

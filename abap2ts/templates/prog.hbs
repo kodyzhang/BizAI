@@ -1,0 +1,33 @@
+{{!-- ABAP Program / Include → TypeScript module interface --}}
+// Auto-generated from SAP ABAP Program: {{name}}
+// {{#if description}}{{description}}{{else}}(no description){{/if}}
+// Generated at: {{isoDate}}
+
+{{#if fields}}
+export interface {{pascalCase name}}Data {
+{{#each fields}}
+  {{#if description}}/** {{description}} */
+  {{/if}}{{camelCase name}}: {{abapToTs type}};
+{{/each}}
+}
+{{/if}}
+{{#if methods}}
+
+export interface {{pascalCase name}}Forms {
+{{#each methods}}
+  /**
+   * {{#if description}}{{description}}{{else}}{{name}}{{/if}}
+   */
+  {{camelCase name}}({{#if importing}}params: {
+    {{#each importing}}{{camelCase name}}: {{abapToTs type}};
+    {{/each}}}{{/if}}): {{#if exporting}}{
+    {{#each exporting}}{{camelCase name}}: {{abapToTs type}};
+    {{/each}}}{{else}}void{{/if}};
+{{/each}}
+}
+{{/if}}
+{{#unless fields}}{{#unless methods}}
+// Program: {{name}}
+// No structured fields or forms detected.
+export type {{pascalCase name}} = Record<string, unknown>;
+{{/unless}}{{/unless}}

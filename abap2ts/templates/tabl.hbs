@@ -1,0 +1,13 @@
+{{!-- ABAP Transparent Table (TABL) → TypeScript row interface + table type alias --}}
+// Auto-generated from SAP ABAP Table: {{name}}
+// {{#if description}}{{description}}{{else}}(no description){{/if}}
+// Generated at: {{isoDate}}
+
+export interface {{pascalCase name}}Row {
+{{#each fields}}
+  {{#if description}}/** {{description}} */
+  {{/if}}{{camelCase name}}: {{abapToTs type}};
+{{/each}}
+}
+
+export type {{pascalCase name}} = {{pascalCase name}}Row[];
